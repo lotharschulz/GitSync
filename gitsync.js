@@ -137,6 +137,8 @@ module.exports = class GitSync {
 
     async performWork(config) {
         let workItem = null;
+        log.debug("debug config.action")
+        log.debug(config.action)
         switch (config.action) {
             case "opened":
                 workItem = await this.createWorkItem(config);
