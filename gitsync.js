@@ -22,7 +22,10 @@ module.exports = class GitSync {
             const env = process.env;
 
             let config = this.getConfig(context.payload, env);
+            log.debug("loading config: ")
             log.debug(config);
+
+            await this.performWork(config);
 
             // Temporary fix until support of PRs
             // if (config.issue.node_id.startsWith("PR_")) {
